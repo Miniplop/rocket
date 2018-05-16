@@ -1,4 +1,3 @@
-  ---
 - name: Set permissions on socket - owner
   lineinfile: dest=/etc/php/7.1/fpm/pool.d/www.conf
               regexp='^[\s;]*listen.owner\s*=\s*'
@@ -72,6 +71,13 @@
               create=yes
   notify: restart php7-fpm
 
+- name: Change the opcache validate_timestamps
+  lineinfile: dest=/etc/php/7.1/fpm/php.ini
+              regexp='^[\s;]*opcache.validate_timestamps\s*='
+              line='opcache.validate_timestamps = 1'
+              create=yes
+  notify: restart php7-fpm
+
 - name: Disable url fopen
   lineinfile: dest=/etc/php/7.1/fpm/php.ini
               regexp='^[\s;]*allow_url_fopen\s*='
@@ -140,14 +146,6 @@
   lineinfile: dest=/etc/php/7.1/fpm/php.ini
               regexp='^[\s;]*opcache.revalidate_freq\s*='
               line='opcache.revalidate_freq = {{ php_opcache_revalidate_freq }}'
-              insertafter="^[opcache]"
-              create=yes
-  notify: restart php7-fpm
-
-- name: opcache - changing validate timestamps
-  lineinfile: dest=/etc/php/7.1/fpm/php.ini
-              regexp='^[\s;]*opcache.validate_timestamps\s*='
-              line='opcache.validate_timestamps = {{ php_opcache_validate_timestamps }}'
               insertafter="^[opcache]"
               create=yes
   notify: restart php7-fpm
