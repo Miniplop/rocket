@@ -1,0 +1,9 @@
+---
+#PUT here your main variable
+project_name: rocket
+port: 80
+apt_install:
+  - git
+
+composer_update: false
+postgresql_version: 9.6
