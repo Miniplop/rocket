@@ -8,11 +8,8 @@ Encore
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
 
-    // will create public/build/app.js and public/build/base.css
-    .addEntry('app', './assets/js/app.js')
-
-    // allow legacy applications to use $/jQuery as a global variable
-    .autoProvidejQuery()
+    // will create public/build/main.js and public/build/base.css
+    .addEntry('app', './assets/js/main.js')
 
     // enable source maps during development
     .enableSourceMaps(!Encore.isProduction())
@@ -22,6 +19,9 @@ Encore
 
     // show OS notifications when builds finish/fail
     .enableBuildNotifications()
+
+    // For Vuejs
+    .enableVueLoader()
 
 // create hashed filenames (e.g. app.abc123.css)
 // .enableVersioning()
