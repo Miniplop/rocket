@@ -1,9 +1,15 @@
 
 ###> symfony/framework-bundle ###
 /.env
+.vagrant
 /public/bundles/
+public/build/
 /var/
 /vendor/
+.idea
+devops/provisioning/playbook.retry
+node_modules
+ubuntu-xenial-16.04-cloudimg-console.log
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###

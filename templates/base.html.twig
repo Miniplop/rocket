@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Rocket{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+    </head>
+    <body>
+        <div id="header">
+            {% block header %}
+                <div>Rocket</div>
+            {% endblock %}
+        </div>
+
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>
