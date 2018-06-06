@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 
-class Task
+class Task implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -53,5 +53,12 @@ class Task
     public function setName($name): void
     {
         $this->name = $name;
+    }
+
+    public function jsonSerialize()
+    {
+       return [
+           'name' => $this->name
+       ];
     }
 }

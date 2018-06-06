@@ -6,11 +6,8 @@
             </md-app-toolbar>
             <md-app-content>
                 <md-list>
-                    <md-list-item>
-                        <span class="md-list-item-text">Hello</span>
-                    </md-list-item>
-                    <md-list-item>
-                        <span class="md-list-item-text">Hello</span>
+                    <md-list-item v-for="task in tasks">
+                        <span class="md-list-item-text">{{ task.name }}</span>
                     </md-list-item>
                 </md-list>
             </md-app-content>
