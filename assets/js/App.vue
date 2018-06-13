@@ -6,9 +6,9 @@
             </md-app-toolbar>
             <md-app-content>
                 <md-list>
-                    <md-list-item v-for="task in tasks">
+                    <md-list-item v-for="task in tasks" :key="task.id">
                         <span class="md-list-item-text">{{ task.name }}</span>
-                        <md-button class="md-icon-button" v-on:click="deleteTask">
+                        <md-button class="md-icon-button" v-on:click="deleteTask(task.id)">
                             <md-icon>delete</md-icon>
                         </md-button>
                     </md-list-item>
@@ -28,10 +28,15 @@
          this.tasks = window.__TASKS
      },
      methods: {
-         deleteTask: function () {
-             this.tasks.pop()
-             console.log('hello')
+         deleteTask: function (id) {
+             fetch("/tasks/" + id, {method: "delete"})
+                 .then(result => console.log("ok"))
+                 .catch(() => console.log('ko'))
+             /*this.tasks = this.tasks.filter(function(task) {
+                 return name !== task.name;
+             });*/
          }
      }
  }
 </script>
+id

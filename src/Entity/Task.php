@@ -58,6 +58,7 @@ class Task implements \JsonSerializable
     public function jsonSerialize()
     {
        return [
+           'id' => $this->id,
            'name' => $this->name
        ];
     }

@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: trompeth
- * Date: 09/06/18
- * Time: 11:41
- */
+
+namespace App\Services;
+
+class TasksService
+{
+    public function deleteTask($task) {
+        var_dump("hello"); die;
+    }
+}
