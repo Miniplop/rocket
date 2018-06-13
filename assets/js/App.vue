@@ -30,11 +30,8 @@
      methods: {
          deleteTask: function (id) {
              fetch("/tasks/" + id, {method: "delete"})
-                 .then(result => console.log("ok"))
-                 .catch(() => console.log('ko'))
-             /*this.tasks = this.tasks.filter(function(task) {
-                 return name !== task.name;
-             });*/
+             .then(() => this.tasks = this.tasks.filter(task => id !== task.id))
+             .catch(() => console.log('ko'))
          }
      }
  }

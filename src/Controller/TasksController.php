@@ -14,6 +14,14 @@ class TasksController extends Controller
      */
     public function deleteAction($taskId) {
 
+        $taskRepository =  $this->getDoctrine()
+            ->getRepository(Task::class);
+        $taskToDelete = $taskRepository->findOneBy(['id' => $taskId]);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($taskToDelete);
+
+        $entityManager->flush();
+
         return new Response();
     }
 }
