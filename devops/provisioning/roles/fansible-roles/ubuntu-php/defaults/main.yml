@@ -22,7 +22,7 @@ php_packages:
 php_timezone: UTC
 php_upload_max_filesize: "64M"
 php_post_max_size: "20M"
-php_memory_limit_fpm: "256M"
+php_memory_limit_fpm: "1024M"
 php_memory_limit_cli: "768M"
 php_max_execution_time: 60
 
