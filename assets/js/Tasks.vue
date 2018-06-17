@@ -20,7 +20,7 @@
 
 <script>
  export default {
-     name: 'app',
+     name: 'tasks',
      data: () => ({
         tasks: []
      }),
