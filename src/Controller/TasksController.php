@@ -26,6 +26,22 @@ class TasksController extends Controller
     }
 
     /**
+     * @Route("/tasks/{taskId}", methods="GET", name="get_task_detail")
+     */
+    public function detailAction($taskId) {
+
+        $taskRepository =  $this->getDoctrine()
+            ->getRepository(Task::class);
+        $task = $taskRepository->findOneBy(['id' => $taskId]);
+
+        $taskJson =  json_encode($task);
+
+        return $this->render('detailTask.html.twig', [
+            'task' => $taskJson
+        ]);
+    }
+
+    /**
      * @Route("/tasks", methods="POST", name="add_task")
      */
     public function addAction() {
