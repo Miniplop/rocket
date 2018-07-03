@@ -20,7 +20,7 @@ class HomeController extends Controller
 
         $tasksJson =  json_encode($tasks);
 
-        return $this->render('base.html.twig', [
+        return $this->render('tasks.html.twig', [
             'tasks' => $tasksJson
         ]);
     }

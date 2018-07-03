@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <script>
+        window.__TASKS = {{ tasks | raw }}
+    </script>
+{% endblock %}

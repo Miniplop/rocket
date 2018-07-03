@@ -8,9 +8,7 @@
     </head>
     <body><!-- Always shows a header, even in smaller screens. -->
         <div id="app"></div>
-        <script>
-            window.__TASKS = {{ tasks | raw }}
-        </script>
+        {% block body %}{% endblock %}
         <script src="{{ asset('build/app.js') }}"></script>
     </body>
 </html>
