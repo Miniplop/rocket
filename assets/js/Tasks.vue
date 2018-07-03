@@ -13,6 +13,9 @@
                         </md-button>
                     </md-list-item>
                 </md-list>
+                <md-button class="md-icon-button" v-on:click="addTask()">
+                    <md-icon>add</md-icon>
+                </md-button>
             </md-app-content>
         </md-app>
     </div>
@@ -32,8 +35,15 @@
              fetch("/tasks/" + id, {method: "delete"})
              .then(() => this.tasks = this.tasks.filter(task => id !== task.id))
              .catch(() => console.log('ko'))
+         },
+         addTask: function () {
+             fetch("/tasks", {method: "post"})
+                 .then((response) => response.json())
+                 .then((responseJSON) => {
+                     this.tasks.push(responseJSON.taskAdded);
+                 })
+                .catch(() => console.log('ko'))
          }
      }
  }
 </script>
-id

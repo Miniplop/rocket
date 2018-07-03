@@ -24,4 +24,20 @@ class TasksController extends Controller
 
         return new Response();
     }
+
+    /**
+     * @Route("/tasks", methods="POST", name="add_task")
+     */
+    public function addAction() {
+
+        $taskToAdd = new Task();
+        $taskToAdd->setName("hello");
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($taskToAdd);
+
+        $entityManager->flush();
+
+        return $this->json(array('taskAdded' => $taskToAdd));
+    }
 }
