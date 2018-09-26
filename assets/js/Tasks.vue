@@ -13,6 +13,10 @@
                         </md-button>
                     </md-list-item>
                 </md-list>
+                <md-field>
+                <label>New name</label>
+                <md-input v-model="newTaskName"></md-input>
+                </md-field>
                 <md-button class="md-icon-button" v-on:click="addTask()">
                     <md-icon>add</md-icon>
                 </md-button>
@@ -25,7 +29,8 @@
  export default {
      name: 'tasks',
      data: () => ({
-        tasks: []
+        tasks: [],
+        newTaskName: null,
      }),
      mounted: function() {
          this.tasks = window.__TASKS
@@ -37,7 +42,9 @@
              .catch(() => console.log('ko'))
          },
          addTask: function () {
-             fetch("/tasks", {method: "post"})
+             console.log(this.newTaskName)
+             let payload = { name: this.newTaskName }
+             fetch("/tasks", {method: "post", body: JSON.stringify(payload)})
                  .then((response) => response.json())
                  .then((responseJSON) => {
                      this.tasks.push(responseJSON.taskAdded);

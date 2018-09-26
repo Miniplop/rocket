@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class TasksController extends Controller
@@ -44,10 +45,11 @@ class TasksController extends Controller
     /**
      * @Route("/tasks", methods="POST", name="add_task")
      */
-    public function addAction() {
+    public function addAction(Request $request) {
 
         $taskToAdd = new Task();
-        $taskToAdd->setName("hello");
+        $taskName = json_decode($request->getContent(), true)['name'];
+        $taskToAdd->setName($taskName);
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($taskToAdd);
