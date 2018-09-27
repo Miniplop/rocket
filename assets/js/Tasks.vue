@@ -1,27 +1,20 @@
 <template>
     <div>
-        <md-app>
-            <md-app-toolbar class="md-primary">
-                <span class="md-title">Rocket</span>
-            </md-app-toolbar>
-            <md-app-content>
-                <md-list>
-                    <md-list-item v-for="task in tasks" :key="task.id">
-                        <span class="md-list-item-text">{{ task.name }}</span>
-                        <md-button class="md-icon-button" v-on:click="deleteTask(task.id)">
-                            <md-icon>delete</md-icon>
-                        </md-button>
-                    </md-list-item>
-                </md-list>
-                <md-field>
-                <label>New task</label>
-                <md-input v-model="newTaskName"></md-input>
-                </md-field>
-                <md-button class="md-icon-button" v-on:click="addTask()">
-                    <md-icon>add</md-icon>
+        <md-list>
+            <md-list-item v-for="task in tasks" :key="task.id">
+                <span class="md-list-item-text">{{ task.name }}</span>
+                <md-button class="md-icon-button" v-on:click="deleteTask(task.id)">
+                    <md-icon>delete</md-icon>
                 </md-button>
-            </md-app-content>
-        </md-app>
+            </md-list-item>
+        </md-list>
+        <md-field>
+        <label>New task</label>
+        <md-input v-model="newTaskName"></md-input>
+        </md-field>
+        <md-button class="md-icon-button" v-on:click="addTask()">
+            <md-icon>add</md-icon>
+        </md-button>
     </div>
 </template>
 
