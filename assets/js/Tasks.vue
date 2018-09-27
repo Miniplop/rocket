@@ -14,7 +14,7 @@
                     </md-list-item>
                 </md-list>
                 <md-field>
-                <label>New name</label>
+                <label>New task</label>
                 <md-input v-model="newTaskName"></md-input>
                 </md-field>
                 <md-button class="md-icon-button" v-on:click="addTask()">
