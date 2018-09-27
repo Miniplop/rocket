@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 
 import App from './App'
+import DashBoardPage from './DashBoardPage'
 import LoginPage from './LoginPage'
 import Tasks from './Tasks'
 import TaskDetail from './TaskDetail'
@@ -19,7 +20,8 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 
 const routes = [
-    { path : '/', component: LoginPage, name: 'loginPage'},
+    { path : '/', component: DashBoardPage, name: 'dashBoardPage'},
+    { path : '/login', component: LoginPage, name: 'loginPage'},
     { path : '/tasks', component: Tasks, name: 'tasks'},
     { path : '/tasks/:id', component: TaskDetail, name: 'taskDetail'}
 ]

@@ -58,4 +58,19 @@ class TasksController extends Controller
 
         return $this->json(array('taskAdded' => $taskToAdd));
     }
+
+    /**
+     * @Route("/tasks", methods="GET", name="get_tasks")
+     */
+    public function getTasksAction() {
+        $tasks = $this->getDoctrine()
+        ->getRepository(Task::class)
+        ->findAll();
+
+        $tasksJson =  json_encode($tasks);
+
+        return $this->render('tasks.html.twig', [
+        'tasks' => $tasksJson
+        ]);
+    }
 }

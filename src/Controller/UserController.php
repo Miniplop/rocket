@@ -2,16 +2,15 @@
 
 namespace App\Controller;
 
-use App\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     /**
-     * @Route("/", methods="GET", name="home")
+     * @Route("/login", methods="GET", name="home")
      */
-    public function homeAction()
+    public function loginViewAction()
     {
         return $this->render('base.html.twig');
     }
