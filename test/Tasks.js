@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Tasks from '../assets/js/Tasks.vue';
+import Tasks from '../assets/js/pages/Tasks.vue';
 import { assert } from 'chai'
 
 global.window = { __TASKS : [{name: 'toto', id: 1}] };
