@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends Controller
 {
     /**
-     * @Route("/login", methods="GET", name="home")
+     * @Route("/login", methods="GET", name="login")
      */
     public function loginViewAction()
     {
