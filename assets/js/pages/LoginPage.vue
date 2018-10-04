@@ -20,8 +20,13 @@
         },
         methods: {
             login() {
-                this.setUser(this.username);
-                this.$router.push('/tasks')
+                if (this.isValidUser()) {
+                    this.setUser(this.username);
+                    this.$router.push('/tasks')
+                }
+            },
+            isValidUser() {
+
             },
             ...mapMutations('currentUser', [
                 'setUser'
